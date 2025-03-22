@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for fintracker on 2025-03-22T13:58:27-05:00
+# fly.toml app configuration file generated for fintracker on 2025-03-22T16:09:37-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -14,14 +14,11 @@ console_command = '/rails/bin/rails console'
   PORT = '8080'
 
 [processes]
-  app = "./bin/rake litestream:run ./bin/rails server"
+  app = './bin/rake litestream:run ./bin/rails server'
 
 [[mounts]]
   source = 'data'
   destination = '/data'
-  auto_extend_size_threshold = 80
-  auto_extend_size_increment = '1GB'
-  auto_extend_size_limit = '10GB'
 
 [http_service]
   internal_port = 8080
@@ -43,6 +40,32 @@ console_command = '/rails/bin/rails console'
     [http_service.checks.headers]
       X-Forwarded-Proto = 'https'
 
+  [[http_service.checks]]
+    interval = '10s'
+    timeout = '2s'
+    grace_period = '5s'
+    method = 'GET'
+    path = '/up'
+    protocol = 'http'
+    tls_skip_verify = false
+
+    [http_service.checks.headers]
+      X-Forwarded-Proto = 'https'
+
+  [[http_service.checks]]
+    interval = '10s'
+    timeout = '2s'
+    grace_period = '5s'
+    method = 'GET'
+    path = '/up'
+    protocol = 'http'
+    tls_skip_verify = false
+
+    [http_service.checks.headers]
+      X-Forwarded-Proto = 'https'
+
 [[vm]]
   size = 'shared-cpu-1x'
-  memory = "515mb"
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
