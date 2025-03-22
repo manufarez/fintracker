@@ -1,12 +1,12 @@
 import { Head } from "@inertiajs/react"
-import NavBar from "~/components/NavBar"
+import Navbar from "~/components/Navbar"
 import FlashMessages from "~/components/FlashMessages"
 const SiteLayout = ({ children }) => {
 
   return (
     <main>
       <Head title="Track your finances" />
-      <NavBar />
+      <Navbar />
       <FlashMessages />
       <div>{children}</div>
     </main>

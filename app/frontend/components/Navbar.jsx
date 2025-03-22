@@ -1,7 +1,7 @@
 import { Link, usePage } from "@inertiajs/react"
 import Container from "~/components/Container"
 
-const NavBar = () => {
+const Navbar = () => {
   const {current_user} = usePage().props;
   const isAuthenticated = current_user !== null;
   return (
@@ -21,4 +21,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default Navbar
