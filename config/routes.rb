@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   #get 'inertia-example', to: 'inertia_example#index'
   get 'dashboard', to: 'pages#dashboard'
-  resources :categories, only: [:index, :create, :destroy]
+  resources :categories, only: [:index, :create, :destroy, :show]
   resources :transactions, only: [:index, :create, :destroy]
   resource :profile, only: [:show, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
