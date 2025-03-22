@@ -24,6 +24,9 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -35,7 +38,7 @@ jobs:
           bundler-cache: true
 
       - name: Standard Ruby
-        run: standardrb/standard-ruby-action@v1
+        uses: standardrb/standard-ruby-action@v1
 
   test:
     runs-on: ubuntu-latest
