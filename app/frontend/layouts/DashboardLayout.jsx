@@ -175,7 +175,7 @@ export default function DashboardLayout({children}) {
                   </MenuButton>
                   <MenuItems
                     transition
-                    className="absolute right-0 z-10 mt-2.5 w-48 origin-top-right rounded-md bg-white py-2 ring-1 shadow-lg ring-gray-900/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 cursor:pointer data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+                    className="absolute right-0 z-10 mt-4 mr-1 w-48 origin-top-right rounded-md bg-white py-2 ring-1 shadow-lg ring-gray-900/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 cursor:pointer data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
                   >
                     <Link href="/profile" className="block px-4 py-2 text-sm/6 text-gray-900 data-focus:bg-gray-50 data-focus:outline-hidden hover:bg-gray-50 w-full text-left cursor-pointer">
                       Edit my profile

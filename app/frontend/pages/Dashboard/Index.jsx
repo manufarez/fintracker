@@ -15,27 +15,27 @@ const Dashboard = ({balance, amount_spent_this_month, amount_spent_last_week, la
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <p className="text-base text-zinc-500">Welcome back, {current_user.username} 👋!</p>
         <div className="my-6 w-full">
-          <div className="grid grid-cols-12 gap-4 w-full">
+          <div className="grid grid-cols-6 md:grid-cols-12 gap-4 w-full">
             <div className="col-span-3">
-              <Card>
+              <Card className="h-full">
                 <h2 className="text-base text-zinc-500">Total Balance</h2>
                 <p className="text-3xl font-semibold text-zinc-800">{balance}</p>
               </Card>
             </div>
             <div className="col-span-3">
-              <Card>
+              <Card className="h-full">
                 <h2 className="text-base text-zinc-500">Amount spent this month</h2>
                 <p className="text-3xl font-semibold text-zinc-800">{amount_spent_this_month}</p>
               </Card>
             </div>
             <div className="col-span-3">
-              <Card>
+              <Card className="h-full">
                 <h2 className="text-base text-zinc-500">Amount spent last week</h2>
                 <p className="text-3xl font-semibold text-zinc-800">{amount_spent_last_week}</p>
               </Card>
             </div>
             <div className="col-span-3">
-              <Card>
+              <Card className="h-full">
                 <h2 className="text-base text-zinc-500">Last week's income</h2>
                 <p className="text-3xl font-semibold text-zinc-800">{last_weeks_income}</p>
               </Card>
