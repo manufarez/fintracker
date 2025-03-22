@@ -19,5 +19,8 @@
     "react-apexcharts": "^1.7.0",
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.15"
+  },
+  "scripts": {
+    "build": "vite build --outDir public"
   }
 }
