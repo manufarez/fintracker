@@ -45,3 +45,4 @@ console_command = '/rails/bin/rails console'
 
 [[vm]]
   size = 'shared-cpu-1x'
+  memory = "515mb"
