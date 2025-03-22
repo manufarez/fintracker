@@ -11,16 +11,16 @@ class TransactionsController < ApplicationController
     transaction = Current.user.transactions.new(transaction_params)
 
     if transaction.save!
-      redirect_to transactions_url, notice: 'Transaction created successfully'
+      redirect_to transactions_url, notice: "Transaction created successfully"
     else
-      redirect_to transactions_url, inertia: { errors: transaction.errors }
+      redirect_to transactions_url, inertia: {errors: transaction.errors}
     end
   end
 
   def destroy
     transaction = Transaction.find(params[:id])
     transaction.destroy!
-    redirect_to transactions_url, notice: 'Transaction deleted successfully'
+    redirect_to transactions_url, notice: "Transaction deleted successfully"
   end
 
   private
@@ -45,10 +45,10 @@ class TransactionsController < ApplicationController
   end
 
   def serialized_categories
-    Current.user.categories.map { |category| { id: category.id, name: category.name, slug: category.slug, color_code: category.color_code } }
+    Current.user.categories.map { |category| {id: category.id, name: category.name, slug: category.slug, color_code: category.color_code} }
   end
 
   def serialized_transaction_types
-    Transaction::TRANSACTION_TYPES.map { |type| { id: type, name: type.humanize } }
+    Transaction::TRANSACTION_TYPES.map { |type| {id: type, name: type.humanize} }
   end
 end

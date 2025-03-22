@@ -3,20 +3,20 @@ class CategoriesController < ApplicationController
 
   def index
     categories = Category.all
-    render inertia: "Categories/Index", props: { categories: categories }
+    render inertia: "Categories/Index", props: {categories: categories}
   end
 
   def show
-    render inertia: "Categories/Show", props: { category: serialized_category }
+    render inertia: "Categories/Show", props: {category: serialized_category}
   end
 
   def create
     category = Current.user.categories.new(category_params)
 
     if category.save
-      redirect_to categories_url, notice: 'Category created successfully'
+      redirect_to categories_url, notice: "Category created successfully"
     else
-      redirect_to categories_url, inertia: { errors: category.errors }
+      redirect_to categories_url, inertia: {errors: category.errors}
     end
   end
 

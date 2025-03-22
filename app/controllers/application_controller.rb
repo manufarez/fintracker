@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       id: current_user.try(:id),
       email: current_user.try(:email_address),
       username: current_user.try(:username),
-      avatar_url: current_user.try(:avatar_url),
+      avatar_url: current_user.try(:avatar_url)
     }
   end
 end

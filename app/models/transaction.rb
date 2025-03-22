@@ -5,14 +5,14 @@ class Transaction < ApplicationRecord
   belongs_to :category
 
   validates :amount, presence: true
-  validates :transaction_type, presence: true, inclusion: { in: TRANSACTION_TYPES }
+  validates :transaction_type, presence: true, inclusion: {in: TRANSACTION_TYPES}
   validates :date, presence: true
 
   monetize :amount_cents
 
   scope :descending_by_date, -> { order(date: :desc) }
-  scope :expense, -> { where(transaction_type: 'expense') }
-  scope :income, -> { where(transaction_type: 'income') }
+  scope :expense, -> { where(transaction_type: "expense") }
+  scope :income, -> { where(transaction_type: "income") }
 
   before_save :ensure_amount_sign
   after_save :update_user_balance
@@ -35,7 +35,7 @@ class Transaction < ApplicationRecord
   private
 
   def ensure_amount_sign
-    self.amount = -self.amount if transaction_type == 'expense'
+    self.amount = -amount if transaction_type == "expense"
   end
 
   def update_user_balance
