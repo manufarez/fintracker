@@ -21,6 +21,7 @@ export default function DashboardLayout({children}) {
   const url = usePage().url;
   const currentUser = usePage().props.current_user;
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const showSearchForm = !url.startsWith('/profile');
 
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: Home, current: url.startsWith('/dashboard') },
@@ -139,19 +140,23 @@ export default function DashboardLayout({children}) {
             <div aria-hidden="true" className="h-6 w-px bg-gray-900/10 lg:hidden" />
 
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-              <form action="#" method="GET" className="grid flex-1 grid-cols-1">
-                <input
-                  name="search"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                  className="border-none focus:ring-0 col-start-1 row-start-1 block size-full bg-white pl-8 text-base text-gray-900 outline-hidden placeholder:text-gray-400 sm:text-sm/6"
-                />
-                <Search
-                  aria-hidden="true"
-                  className="pointer-events-none col-start-1 row-start-1 size-5 self-center text-gray-400"
-                />
-              </form>
+              {showSearchForm ? (
+                <form action="#" method="GET" className="grid flex-1 grid-cols-1">
+                  <input
+                    name="search"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    className="border-none focus:ring-0 col-start-1 row-start-1 block size-full bg-white pl-8 text-base text-gray-900 outline-hidden placeholder:text-gray-400 sm:text-sm/6"
+                  />
+                  <Search
+                    aria-hidden="true"
+                    className="pointer-events-none col-start-1 row-start-1 size-5 self-center text-gray-400"
+                  />
+                </form>
+              ) : (
+                <div className="flex-1" />
+              )}
               <div className="flex items-center">
                 <Menu as="div">
                   <MenuButton className="flex items-center p-1.5 gap-x-3 cursor-pointer">
