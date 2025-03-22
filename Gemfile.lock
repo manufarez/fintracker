@@ -431,7 +431,7 @@ DEPENDENCIES
   solid_cache
   solid_queue
   sqlite3 (>= 2.1)
-  standard (>= 1.35.1)
+  standard (>= 1.42.0)
   tailwindcss-rails
   thruster
   tzinfo-data
